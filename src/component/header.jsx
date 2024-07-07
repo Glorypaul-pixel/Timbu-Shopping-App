@@ -20,7 +20,7 @@ const Header = () => {
           <li className="py-2 px-3 border-b-2 border-transparent">
             <Link
               to="/"
-              className="border-b-4 border-transparent border-customPurple"
+              className="border-b-4 border-customPurple"
             >
               Shop
             </Link>
