@@ -154,13 +154,13 @@ const Product = () => {
               {product.description}
             </p>
             <div className="add-cart flex items-center justify-between mt-2">
-              <h3 className="text-gray-900 font-semibold">₦{product.price}</h3>
+              <h3 className="text-gray-900 font-semibold text-xs">₦{product.price}</h3>
               <Link
                 to="/payment"
                 className="butt flex items-center bg-customPurple rounded-md text-white p-2 ml-2"
               >
                 <img src={Cart} alt="cart" className="w-4 h-4 mr-1" />
-                <h6 className="text-sm">Add to cart</h6>
+                <h6 className="text-xs">Add to cart</h6>
               </Link>
             </div>
           </div>
