@@ -1,11 +1,16 @@
-// /** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}", // Include all JavaScript and TypeScript files in the src folder
-    "./public/index.html", // Include the index.html file in the public folder
-  ],
+  content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        inter: ["Inter", "sans-serif"],
+        hanalei: ["Hanalei Fill", "cursive"],
+      },
+      colors: {
+        customPurple: "#5D3FD3",
+      },
+    },
   },
   plugins: [],
 };
