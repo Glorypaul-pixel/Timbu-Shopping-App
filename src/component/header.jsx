@@ -1,30 +1,32 @@
+import { Link } from "react-router-dom";
 import ICON from "./image/Ellipse.png";
 import Search from "./image/search-thin.png";
 import Cart from "./image/cart-linear.png";
-const header = () => {
+
+const Header = () => {
   return (
-    <div className="flex items-center justify-between p-3">
+    <div className="flex items-center justify-between px-7 py-3 cursor-default">
       <div className="logo font-hanalei text-customPurple text-2xl">
         <h1>Timbu</h1>
       </div>
       <nav>
         <ul className="flex space-x-4 text-sm font-inter font-normal">
           <li className="py-2 px-3">
-            <a href="#">Home</a>
+            <Link to="/#">Home</Link>
           </li>
           <li className="py-2 px-3">
-            <a href="#">Categories</a>
+            <Link to="/categories">Categories</Link>
           </li>
           <li className="py-2 px-3 border-b-2 border-transparent">
-            <a
-              href="#"
+            <Link
+              to="/"
               className="border-b-4 border-transparent border-customPurple"
             >
               Shop
-            </a>
+            </Link>
           </li>
           <li className="py-2 px-3">
-            <a href="#">Help</a>
+            <Link to="/help">Help</Link>
           </li>
         </ul>
       </nav>
@@ -48,4 +50,4 @@ const header = () => {
   );
 };
 
-export default header;
+export default Header;

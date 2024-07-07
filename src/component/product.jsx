@@ -1,17 +1,19 @@
 import { Link } from "react-router-dom";
-import CCTV from "./image/cctv.png";
-import Fridge from "./image/fridge.png";
-import Oven from "./image/oven.png";
-import Nest from "./image/nest.png";
-import Ecobee from "./image/ecobee.png";
-import PotWifi from "./image/pot-wifi.png";
-import HueBulb from "./image/hue-bulb.png";
-import QLED from "./image/tv4.png";
+import CCTV from "./image/cctv.jpg";
+import Fridge from "./image/fridge.jpg";
+import Oven from "./image/oven.jpg";
+import Nest from "./image/nest.jpg";
+import Ecobee from "./image/ecobee.jpg";
+import PotWifi from "./image/pot-wifi.jpg";
+import HueBulb from "./image/hue-bulb.jpg";
+import QLED from "./image/tv4.jpg";
 import Cart from "./image/cart-plus.png";
-import AppleTv from "./image/tv3.png";
-import PlayStation from "./image/game2.png";
-import Xbox from "./image/game1.png";
-import Elite from "./image/mouse.png";
+import AppleTv from "./image/tv3.jpg";
+import PlayStation from "./image/game2.jpg";
+import Xbox from "./image/game1.jpg";
+import Elite from "./image/mouse.jpg";
+import Arrow from "./image/ep_arrow-down.png";
+import Star from "./image/Star.png";
 
 const products = [
   {
@@ -20,13 +22,13 @@ const products = [
     image: QLED,
     price: 362485,
     description:
-      "Built-in internet connectivity, voice control and smart home integration",
+      "Built-in internet connectivity, voice control and smart home integration with our smart TV",
   },
   {
     id: 2,
     name: "Ario Pro 4 Spotlight Camera",
     image: CCTV,
-    Price: 362485,
+    price: 362485,
     description:
       "Wireless security camera with 2K HDR video, color night vision, and a built-in spotlight.",
   },
@@ -34,7 +36,7 @@ const products = [
     id: 3,
     name: "Samsung Family Refrigerator",
     image: Fridge,
-    Price: 600000,
+    price: 600000,
     description:
       "High-tech refrigerator with a built-in touchscreen, manage groceries, stream music, and control devices",
   },
@@ -43,7 +45,7 @@ const products = [
     id: 4,
     name: "Breville Smart Oven Air",
     image: Oven,
-    Price: 500550,
+    price: 500550,
     description:
       "A countertop oven with multiple cooking functions, including air frying, with smart presets for easy use.",
   },
@@ -119,35 +121,47 @@ const products = [
 const Product = () => {
   return (
     <div>
-      <h1>Our Products</h1>
-      <div className="categories">
-        <h1>Categories</h1>
-        {/* <ul>
-          <li>Security Systems</li>
-          <li>Smart Lighting</li>
-          <li>Smart Thermostats</li>
-          <li>Smart Appliances</li>
-          <li>Home Entertainment</li>
-          <li>Smart Home Hubs</li>
-          <li>Smart Plugs</li>
-          <li>Smart Sensors</li>
-        </ul> */}
+      <div className="flex justify-between items-center px-7 pt-11 font-inter font-semibold cursor-default">
+        <h4 className="flex items-center">
+          Filter
+          <img src={Arrow} alt="Arrow down" className="ml-1" />
+        </h4>
+        <h4 className="flex items-center">
+          Sort By Latest
+          <img src={Arrow} alt="Arrow down" className="ml-1" />
+        </h4>
       </div>
-      <div className="products">
+
+      <div className="products grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-7 rounded-md font-inter shadow-md">
         {products.map((product) => (
-          <div key={product.id} className="product-item">
-            <Link to={`/product/${product.id}`}>
-              <img src={product.image} alt={product.name} />
-              <h4>{product.name}</h4>
+          <div
+            key={product.id}
+            className="product-item bg-white rounded-md p-4 shadow-md"
+          >
+            <Link to={`/product/${product.id}`} className="block">
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full h-auto max-w-full"
+              />
+              <h4 className="mt-2 font-bold">{product.name}</h4>
             </Link>
-            <span>(1,200 reviews)</span>
-            <p>{product.description}</p>
-            <div className="add-cart">
-              <h3>₦{product.price}</h3>
-              <div className="butt">
-                <img src={Cart} alt="cart" />
-                <h5>Add to cart</h5>
-              </div>
+            <span className=" text-xs text-gray-600 font-semibold flex justify-between items-center">
+              <img src={Star} alt="" className="w-20" />
+              (1,200 reviews)
+            </span>
+            <p className="mt-1 text-sm text-gray-600 font-semibold">
+              {product.description}
+            </p>
+            <div className="add-cart flex items-center justify-between mt-2">
+              <h3 className="text-gray-900 font-semibold">₦{product.price}</h3>
+              <Link
+                to="/payment"
+                className="butt flex items-center bg-customPurple rounded-md text-white p-2 ml-2"
+              >
+                <img src={Cart} alt="cart" className="w-4 h-4 mr-1" />
+                <h6 className="text-sm">Add to cart</h6>
+              </Link>
             </div>
           </div>
         ))}

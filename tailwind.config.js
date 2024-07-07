@@ -9,6 +9,7 @@ export default {
       },
       colors: {
         customPurple: "#5D3FD3",
+        blackish: "#333333",
       },
     },
   },
