@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./component/header";
-import Advert from "./component/advert";
+import Advert from "./component/advert/advert";
 import Product from "./component/product";
 import ProductDetail from "./component/productDetail";
 import Footer from "./component/footer";

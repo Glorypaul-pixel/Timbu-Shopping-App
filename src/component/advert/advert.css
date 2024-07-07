@@ -1,0 +1,40 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.shop-advert {
+  position: relative;
+  overflow: hidden;
+  height: 150px;
+  text-align: center;
+  color: white;
+  padding-top: 3.5rem;
+  line-height: 1rem;
+}
+
+.shop-advert::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../image/bg-shop.png");
+  background-position: center;
+  background-size: cover;
+  filter: blur(2px);
+  z-index: -1;
+}
+
+.shop-advert p {
+  position: relative;
+  z-index: 1;
+  font-weight: 500;
+}
+.shop-advert h1 {
+  font-weight: 800;
+  position: relative;
+  z-index: 1;
+}

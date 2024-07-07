@@ -1,11 +1,11 @@
 const header = () => {
   return (
-    <div>
+    <div className="flex items-center">
       <div className="logo">
         <h1> AceHub</h1>
       </div>
       <nav>
-        <ul>
+        <ul className="flex">
           <li>Home</li>
           <li>Categories</li>
           <li>Shop</li>
