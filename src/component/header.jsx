@@ -13,7 +13,7 @@ const Header = () => {
   };
 
   return (
-    <div className="px-7 py-3 cursor-default">
+    <div className="px-7 py-3 cursor-default top-0">
       <div className="flex items-center justify-between">
         <div className="logo font-hanalei text-customPurple text-2xl">
           <h1>Timbu</h1>

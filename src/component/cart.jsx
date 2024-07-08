@@ -1,6 +1,5 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useCart } from "./context";
-import PropTypes from "prop-types";
 import CCTV from "./image/cctv.jpg";
 import Fridge from "./image/fridge.jpg";
 import Oven from "./image/oven.jpg";
@@ -14,7 +13,7 @@ import PlayStation from "./image/game2.jpg";
 import Xbox from "./image/game1.jpg";
 import Elite from "./image/mouse.jpg";
 
-const products = [
+const cartItems = [
   {
     id: 1,
     name: "Samsung QLED Smart TV",
@@ -113,37 +112,70 @@ const products = [
   },
 ];
 
-const ProductDetail = ({ addToCartAndNavigate }) => {
-  const { productId } = useParams();
-  const product = products.find((p) => p.id === parseInt(productId));
-  const { addToCart } = useCart();
-
-  const handleAddToCart = () => {
-    addToCart(product);
-    addToCartAndNavigate(product); // Navigate to the cart page after adding to cart
-  };
+const Cart = () => {
+  const {updateQuantity, removeFromCart, getTotalPrice } =
+    useCart();
 
   return (
-    <div>
-      <h1>{product.name}</h1>
-      <img src={product.image} alt={product.name} className="w-20 h-20" />
-      <p>{product.description}</p>
-      <h3>₦{product.price}</h3>
-      <button
-        onClick={handleAddToCart}
-        className="bg-customPurple text-white px-6 py-2 rounded"
-      >
-        Add to Cart
-      </button>
-
-      <Link to="/payment" className="ml-4">
-        Proceed to Payment
-      </Link>
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-6">Shopping Cart</h1>
+      {cartItems.length === 0 ? (
+        <p>Your cart is empty.</p>
+      ) : (
+        <div className="space-y-4">
+          {cartItems.map((item) => (
+            <div
+              key={item.id}
+              className="flex justify-between items-center border-b py-4"
+            >
+              <div className="flex items-center">
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-20 h-20 object-cover"
+                />
+                <div className="ml-4">
+                  <h2 className="text-lg font-medium">{item.name}</h2>
+                  <p className="text-sm">{item.description}</p>
+                  <p>₦{item.price}</p>
+                </div>
+              </div>
+              <div className="flex items-center">
+                <button
+                  onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                  className="bg-green-500 text-white px-3 py-1 rounded"
+                >
+                  Add
+                </button>
+                <input
+                  type="number"
+                  value={item.quantity}
+                  min="1"
+                  onChange={(e) => updateQuantity(item.id, e.target.value)}
+                  className="w-16 p-1 border rounded mx-4"
+                />
+                <button
+                  onClick={() => removeFromCart(item.id)}
+                  className="bg-red-500 text-white px-3 py-1 rounded"
+                >
+                  Remove
+                </button>
+              </div>
+            </div>
+          ))}
+          <div className="flex justify-between items-center mt-6">
+            <h2 className="text-xl font-bold">Total: ₦{getTotalPrice()}</h2>
+            <Link
+              to="/checkout"
+              className="bg-customPurple text-white px-6 py-2 rounded"
+            >
+              Proceed to Checkout
+            </Link>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
-ProductDetail.propTypes = {
-  addToCartAndNavigate: PropTypes.func.isRequired,
-};
 
-export default ProductDetail;
+export default Cart;

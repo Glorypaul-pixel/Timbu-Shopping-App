@@ -156,7 +156,7 @@ const Product = () => {
             <div className="add-cart flex items-center justify-between mt-2">
               <h3 className="text-gray-900 font-semibold">₦{product.price}</h3>
               <Link
-                to="/payment"
+                to="/cart"
                 className="butt flex items-center bg-customPurple rounded-md text-white p-2 ml-2"
               >
                 <img src={Cart} alt="cart" className="w-4 h-4 mr-1" />
