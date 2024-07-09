@@ -190,16 +190,11 @@ const Checkout = () => {
                 className="border-2 border-gray-300 p-2 rounded"
               />
             </div>
-            <button
-              type="submit"
-              className="bg-customPurple text-white p-2 rounded"
-            >
-              Submit
-            </button>
+           
           </form>
         </div>
         <div className="w-full md:w-1/2 bg-gray-100 p-4 rounded shadow">
-          <h3 className="text-xl font-bold mb-4">Order Summary</h3>
+          <h3 className="text-xl font-bold mb-4 order">Order Summary</h3>
           <div className="p-6">
             {carts.length === 0 ? (
               <p>Your cart is empty.</p>
