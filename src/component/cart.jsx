@@ -78,11 +78,13 @@ const Cart = () => {
               </div>
             );
           })}
-          <div className="flex justify-between items-center mt-6">
-            <h2 className="text-xl font-bold">Total: ₦{getTotalPrice()}</h2>
+          <div className="flex flex-col md:flex-row justify-between items-center mt-6">
+            <h2 className="text-lg md:text-xl font-bold">
+              Total: ₦{getTotalPrice()}
+            </h2>
             <Link
               to="/checkout"
-              className="bg-customPurple text-white px-6 py-2 rounded"
+              className="bg-customPurple text-white px-4 py-2 rounded text-sm md:text-base"
             >
               Proceed to Checkout
             </Link>
