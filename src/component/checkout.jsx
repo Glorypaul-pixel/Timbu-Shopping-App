@@ -1,10 +1,8 @@
 import { useState } from "react";
-// import { useCart } from "./context";
 import { Link } from "react-router-dom";
 import { products } from "./productList";
 import { useSelector, useDispatch } from "react-redux";
 import { changeQuantity, removeFromCart } from "../stores/card";
-// import { products } from "./productList";
 
 const Checkout = () => {
   const [formData, setFormData] = useState({
@@ -36,6 +34,7 @@ const Checkout = () => {
       return total + (product ? product.price * item.quantity : 0);
     }, 0);
   };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
@@ -50,11 +49,11 @@ const Checkout = () => {
   };
 
   return (
-    <div className="container mx-auto pt-4 font-inter">
+    <div className="container mx-auto pt-4 font-inter px-4 md:px-0">
       <h1 className="text-2xl font-semibold mb-6 text-center">
         Check-Out Details
       </h1>
-      <div className="flex flex-col md:flex-row gap-6 p-4 md:p-8">
+      <div className="flex flex-col md:flex-row gap-6">
         <div className="w-full md:w-1/2">
           <form onSubmit={handleSubmit} className="space-y-2 ">
             <div className="flex flex-col">
@@ -149,6 +148,7 @@ const Checkout = () => {
                 value={formData.phoneNumber}
                 onChange={handleChange}
                 required
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                 className="border-2 border-gray-300 p-2 rounded"
               />
               <small className="text-gray-500">Format: 123-456-7890</small>
@@ -168,10 +168,12 @@ const Checkout = () => {
           </form>
         </div>
         <div className="w-full md:w-1/2 bg-gray-100 p-4 rounded shadow">
-          <h3 className="text-xl font-bold mb-4 order text-center">Order Summary</h3>
+          <h3 className="text-xl font-bold mb-4 order text-center">
+            Order Summary
+          </h3>
           <div className="p-6">
             {carts.length === 0 ? (
-              <p className="text-center font-semibold">Your cart is empty.</p>
+              <p className="text-center">Your cart is empty.</p>
             ) : (
               <div className="space-y-4">
                 {carts.map((item, index) => {
@@ -189,10 +191,10 @@ const Checkout = () => {
                           className="w-20 h-20 object-cover pb-2"
                         />
                         <div className="ml-4">
-                          <h2 className="text-sm font-medium">
+                          <h2 className="text-sm font-semibold">
                             {product.name}
                           </h2>
-                          <p>₦{product.price}</p>
+                          <p className="text-xs">₦{product.price}</p>
                         </div>
                       </div>
                       <div className="flex items-center">
@@ -224,7 +226,7 @@ const Checkout = () => {
                   );
                 })}
                 <div className="flex justify-between items-center mt-6">
-                  <h2 className="text-base md:text-xl font-bold">
+                  <h2 className="text-xl font-bold">
                     Total: ₦{getTotalPrice()}
                   </h2>
                 </div>
