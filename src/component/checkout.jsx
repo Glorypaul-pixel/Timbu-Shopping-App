@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { useCart } from "./context";
+// import { useCart } from "./context";
 import { Link } from "react-router-dom";
+import { products } from "./productList";
 
 const Checkout = () => {
   const [formData, setFormData] = useState({
@@ -15,7 +16,7 @@ const Checkout = () => {
     emailAddress: "",
   });
 
-  const { cartItems, getTotalPrice } = useCart();
+  // const { getTotalPrice } = useCart();
   // const history = useHistory(); // Get history from react-router-dom
 
   const handleChange = (e) => {
@@ -31,15 +32,15 @@ const Checkout = () => {
     console.log(formData);
   };
 
-  const subTotal = getTotalPrice();
-  const discount = subTotal > 100000 ? subTotal * 0.1 : 0; // Example discount rule
-  const deliveryFee = 5000; // Fixed delivery fee
-  const total = subTotal - discount + deliveryFee;
+  // const subTotal = getTotalPrice();
+  // const discount = subTotal > 100000 ? subTotal * 0.1 : 0; // Example discount rule
+  // const deliveryFee = 5000; // Fixed delivery fee
+  // const total = subTotal - discount + deliveryFee;
 
   return (
     <div className="container mx-auto p-6 font-inter">
       <h1 className="text-2xl font-semibold mb-6 text-center">
-        Shipping Details
+        Check-Out Details
       </h1>
       <div className="flex flex-col md:flex-row gap-6">
         <div className="w-full md:w-1/2">
@@ -139,9 +140,7 @@ const Checkout = () => {
                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" // Example pattern for phone number format
                 className="border-2 border-gray-300 p-2 rounded"
               />
-              <small className="text-gray-500">
-                Format: 123-456-7890
-              </small>
+              <small className="text-gray-500">Format: 123-456-7890</small>
             </div>
             <div className="flex flex-col">
               <label className="mb-1">Email Address</label>
@@ -166,7 +165,7 @@ const Checkout = () => {
         <div className="w-full md:w-1/2 bg-gray-100 p-4 rounded shadow">
           <h3 className="text-xl font-bold mb-4">Order Summary</h3>
           <div className="space-y-2">
-            {cartItems.map((item) => (
+            {products.map((item) => (
               <div key={item.id} className="flex justify-between">
                 <span>{item.name}</span>
                 <span>₦{item.price * item.quantity}</span>
@@ -176,19 +175,19 @@ const Checkout = () => {
           <div className="border-t mt-4 pt-4 space-y-2">
             <div className="flex justify-between">
               <span>Sub-total</span>
-              <span>₦{subTotal}</span>
+              {/* <span>₦{subTotal}</span> */}
             </div>
             <div className="flex justify-between">
               <span>Discount</span>
-              <span>-₦{discount}</span>
+              {/* <span>-₦{discount}</span> */}
             </div>
             <div className="flex justify-between">
               <span>Delivery Fee</span>
-              <span>₦{deliveryFee}</span>
+              {/* <span>₦{deliveryFee}</span> */}
             </div>
             <div className="flex justify-between font-bold">
               <span>Total</span>
-              <span>₦{total}</span>
+              {/* <span>₦{total}</span> */}
             </div>
           </div>
           <Link

@@ -1,19 +1,28 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ICON from "./image/Ellipse.png";
 import Search from "./image/search-thin.png";
 import Cart from "./image/cart-linear.png";
-import MenuIcon from "./image/menu.png"; // Add a menu icon
+import MenuIcon from "./image/menu.png";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [totalQuantity, setTotalQuantity] = useState(0);
+  const carts = useSelector((store) => store.cart.items);
+
+  useEffect(() => {
+    let total = 0;
+    carts.forEach((item) => (total += item.quantity));
+    setTotalQuantity(total);
+  }, [carts]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <div className="px-7 py-3 cursor-default top-0">
+    <div className="px-7 py-3 bg-white shadow-lg fixed top-0 w-full z-50">
       <div className="flex items-center justify-between">
         <div className="logo font-hanalei text-customPurple text-2xl">
           <h1>Timbu</h1>
@@ -21,12 +30,12 @@ const Header = () => {
         <nav className="hidden md:flex">
           <ul className="flex space-x-4 text-sm font-inter font-normal">
             <li className="py-2 px-3">
-              <Link to="/#">Home</Link>
+              <Link to="/">Home</Link>
             </li>
             <li className="py-2 px-3">
               <Link to="/categories">Categories</Link>
             </li>
-            <li className="py-2 px-3 border-b-2 border-transparent">
+            <li className="py-2 px-3">
               <Link to="/" className="border-b-4 border-customPurple">
                 Shop
               </Link>
@@ -36,18 +45,23 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        <div className="hidden md:flex search items-center border border-solid border-gray-300 bg-neutral-300 rounded-md p-1 max-w-xs font-inter">
+        <div className="hidden md:flex items-center border border-solid border-gray-300 bg-neutral-300 rounded-md p-1 max-w-xs font-inter">
           <img src={Search} alt="Search bar" className="w-4 h-4 mr-1" />
           <input
             type="search"
             name="search"
             placeholder="Search devices..."
-            className="bg-neutral-300 text-white px-1 py-0.5 outline-none flex-1 rounded-md text-sm"
+            className="bg-neutral-300 text-black px-1 py-0.5 outline-none flex-1 rounded-md text-sm"
           />
         </div>
-        <div className="cart flex items-center space-x-2 font-inter font-normal text-sm">
-          <img src={Cart} alt="Cart icon" className="w-6 h-6" />
-          <p className="mr-2">Cart</p>
+        <div className="cart flex items-center space-x-2 font-inter font-normal text-sm relative">
+          <div className="w-8 h-8 bg-gray-200 rounded-full flex justify-center items-center relative">
+            <img src={Cart} alt="Cart icon" className="w-6 h-6" />
+            <span className="w-4 h-4 rounded-full flex justify-center items-center absolute top-0 right-0 bg-red-500 text-white text-xs">
+              {totalQuantity}
+            </span>
+          </div>
+
           <img src={ICON} alt="Customer image" className="w-8 h-8" />
           <p className="ml-2">Hi, Blessing</p>
         </div>
@@ -62,7 +76,7 @@ const Header = () => {
         <div className="md:hidden mt-4">
           <ul className="flex flex-col space-y-2 text-sm font-inter font-normal">
             <li>
-              <Link to="/#" onClick={toggleMenu}>
+              <Link to="/" onClick={toggleMenu}>
                 Home
               </Link>
             </li>
@@ -92,7 +106,7 @@ const Header = () => {
               type="search"
               name="search"
               placeholder="Search devices..."
-              className="bg-neutral-300 text-white px-1 py-0.5 outline-none flex-1 rounded-md text-sm"
+              className="bg-neutral-300 text-black px-1 py-0.5 outline-none flex-1 rounded-md text-sm"
             />
           </div>
         </div>
