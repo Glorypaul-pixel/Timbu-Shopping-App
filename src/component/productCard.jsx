@@ -23,10 +23,8 @@ const ProductCard = (props) => {
   return (
     <div>
       <div key={id} className="product-item bg-white rounded-md p-4 shadow-md">
-        {/* <Link to={`/product/${slug}`} className="block"> */}
           <img src={image} alt="" className="w-full h-auto max-w-full" />
           <h4 className="mt-2 font-bold">{name}</h4>
-        {/* </Link> */}
         <span className=" text-xs text-gray-600 font-semibold flex justify-between items-center">
           <img src={Star} alt="" className="w-20" />
           (1,200 reviews)

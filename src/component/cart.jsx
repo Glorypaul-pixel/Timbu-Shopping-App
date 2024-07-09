@@ -38,26 +38,26 @@ const Cart = () => {
             return (
               <div
                 key={index}
-                className="flex justify-between items-center border-b py-4"
+                className="flex flex-col md:flex-row justify-between items-center border-b py-4 space-y-4 md:space-y-0"
               >
-                <div className="flex items-center">
+                <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-20 h-20 object-cover"
+                    className="w-full md:w-40 h-40 object-cover"
                   />
-                  <div className="ml-4">
-                    <h2 className="text-lg font-medium">{product.name}</h2>
-                    <p className="text-sm">{product.description}</p>
-                    <p>₦{product.price}</p>
+                  <div className="ml-4 text-center md:text-left">
+                    <h2 className="text-md font-semibold">{product.name}</h2>
+                    {/* <p className="text-sm">{product.description}</p> */}
+                    <p className="text-sm font-semibold">₦{product.price}</p>
                   </div>
                 </div>
-                <div className="flex items-center">
+                <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
                   <button
                     onClick={() =>
                       updateQuantity(product.id, item.quantity + 1)
                     }
-                    className="bg-green-500 text-white px-3 py-1 rounded"
+                    className="bg-green-500 text-white px-3 py-1 rounded w-full md:w-auto"
                   >
                     Add
                   </button>
@@ -66,11 +66,11 @@ const Cart = () => {
                     value={item.quantity}
                     min="1"
                     onChange={(e) => updateQuantity(product.id, e.target.value)}
-                    className="w-16 p-1 border rounded mx-4"
+                    className="w-full md:w-16 p-1 border rounded mx-4 md:mx-0"
                   />
                   <button
                     onClick={() => removeFromCartHandler(product.id)}
-                    className="bg-red-500 text-white px-3 py-1 rounded"
+                    className="bg-red-500 text-white px-3 py-1 rounded w-full md:w-auto"
                   >
                     Remove
                   </button>

@@ -18,26 +18,7 @@ const Checkout = () => {
     phoneNumber: "",
     emailAddress: "",
   });
-  // const carts = useSelector((store) => store.cart.items);
-  // const dispatch = useDispatch();
-
-  // const updateQuantity = (productId, quantity) => {
-  //   dispatch(changeQuantity({ productId, quantity: Number(quantity) }));
-  // };
-
-  // const removeFromCartHandler = (productId) => {
-  //   dispatch(removeFromCart(productId));
-  // };
-
-  // const getTotalPrice = () => {
-  //   return carts.reduce((total, item) => {
-  //     const product = products.find((product) => product.id === item.productId);
-  //     return total + (product ? product.price * item.quantity : 0);
-  //   }, 0);
-  // };
-
-  // const { getTotalPrice } = useCart();
-  // const history = useHistory(); // Get history from react-router-dom
+  
   const carts = useSelector((store) => store.cart.items);
   const dispatch = useDispatch();
 
@@ -68,11 +49,7 @@ const Checkout = () => {
     console.log(formData);
   };
 
-  // const subTotal = getTotalPrice();
-  // const discount = subTotal > 100000 ? subTotal * 0.1 : 0; // Example discount rule
-  // const deliveryFee = 5000; // Fixed delivery fee
-  // const total = subTotal - discount + deliveryFee;
-
+ 
   return (
     <div className="container mx-auto pt-4 font-inter">
       <h1 className="text-2xl font-semibold mb-6 text-center">
@@ -190,7 +167,6 @@ const Checkout = () => {
                 className="border-2 border-gray-300 p-2 rounded"
               />
             </div>
-           
           </form>
         </div>
         <div className="w-full md:w-1/2 bg-gray-100 p-4 rounded shadow">
@@ -207,10 +183,7 @@ const Checkout = () => {
                   if (!product) return null;
 
                   return (
-                    <div
-                      key={index}
-                      className="border-b p-4"
-                    >
+                    <div key={index} className="border-b p-4">
                       <div className="flex items-center">
                         <img
                           src={product.image}
@@ -256,7 +229,6 @@ const Checkout = () => {
                   <h2 className="text-xl font-bold">
                     Total: ₦{getTotalPrice()}
                   </h2>
-              
                 </div>
               </div>
             )}
