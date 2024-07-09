@@ -18,7 +18,7 @@ const Checkout = () => {
     phoneNumber: "",
     emailAddress: "",
   });
-  
+
   const carts = useSelector((store) => store.cart.items);
   const dispatch = useDispatch();
 
@@ -49,15 +49,14 @@ const Checkout = () => {
     console.log(formData);
   };
 
- 
   return (
     <div className="container mx-auto pt-4 font-inter">
       <h1 className="text-2xl font-semibold mb-6 text-center">
         Check-Out Details
       </h1>
-      <div className="flex flex-col md:flex-row gap-6">
+      <div className="flex flex-col md:flex-row gap-6 p-4 md:p-8">
         <div className="w-full md:w-1/2">
-          <form onSubmit={handleSubmit} className="space-y-2">
+          <form onSubmit={handleSubmit} className="space-y-2 ">
             <div className="flex flex-col">
               <label className="mb-1">First Name</label>
               <input
@@ -150,7 +149,6 @@ const Checkout = () => {
                 value={formData.phoneNumber}
                 onChange={handleChange}
                 required
-                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" // Example pattern for phone number format
                 className="border-2 border-gray-300 p-2 rounded"
               />
               <small className="text-gray-500">Format: 123-456-7890</small>
@@ -170,10 +168,10 @@ const Checkout = () => {
           </form>
         </div>
         <div className="w-full md:w-1/2 bg-gray-100 p-4 rounded shadow">
-          <h3 className="text-xl font-bold mb-4 order">Order Summary</h3>
+          <h3 className="text-xl font-bold mb-4 order text-center">Order Summary</h3>
           <div className="p-6">
             {carts.length === 0 ? (
-              <p>Your cart is empty.</p>
+              <p className="text-center font-semibold">Your cart is empty.</p>
             ) : (
               <div className="space-y-4">
                 {carts.map((item, index) => {
@@ -183,15 +181,15 @@ const Checkout = () => {
                   if (!product) return null;
 
                   return (
-                    <div key={index} className="border-b p-4">
+                    <div key={index} className="border-b p-1">
                       <div className="flex items-center">
                         <img
                           src={product.image}
                           alt={product.name}
-                          className="w-40 h-40 object-cover pb-2"
+                          className="w-20 h-20 object-cover pb-2"
                         />
                         <div className="ml-4">
-                          <h2 className="text-lg font-medium">
+                          <h2 className="text-sm font-medium">
                             {product.name}
                           </h2>
                           <p>₦{product.price}</p>
@@ -226,7 +224,7 @@ const Checkout = () => {
                   );
                 })}
                 <div className="flex justify-between items-center mt-6">
-                  <h2 className="text-xl font-bold">
+                  <h2 className="text-base md:text-xl font-bold">
                     Total: ₦{getTotalPrice()}
                   </h2>
                 </div>
