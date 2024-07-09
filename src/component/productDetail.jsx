@@ -10,7 +10,7 @@ const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
   useEffect(() => {
-    const findDetail = products.filter((product) => product.id === slug);
+    const findDetail = products.filter(product => product.slug === `/productDetail/${slug}`);
     if (findDetail.length > 0) {
       setDetail(findDetail[0]);
     } else {

@@ -1,16 +1,16 @@
-// src/stores/card.js
-
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
-  name: 'cart',
+  name: "cart",
   initialState: {
-    items: [], // Array of { productId, quantity }
+    items: [],
   },
   reducers: {
     addToCart: (state, action) => {
       const { productId, quantity } = action.payload;
-      const existingItem = state.items.find((item) => item.productId === productId);
+      const existingItem = state.items.find(
+        (item) => item.productId === productId
+      );
       if (existingItem) {
         existingItem.quantity += quantity;
       } else {
