@@ -21,7 +21,7 @@ const Product = () => {
         ))}
       </div>
       <ul className="flex items-center justify-center mt-6">
-        <li className="bg-customPurple text-white w-6 h-6 flex justify-center items-center rounded-full text-sm mr-2">
+        <li className="bg-customPurple text-white w-6 h-6 flex justify-center items-center text-sm mr-2">
           1
         </li>
         <li className="text-sm mr-2">2</li>
