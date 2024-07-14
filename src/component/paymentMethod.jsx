@@ -1,14 +1,11 @@
 import { useState, useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { products } from "./productList";
-// import DeleteIcon from "../path/to/DeleteIcon"; // Update this with the actual path to your delete icon
 
 const PaymentMethod = () => {
   const [selectedMethod, setSelectedMethod] = useState("");
   const [isFormValid, setIsFormValid] = useState(false);
-  //   const navigate = useNavigate();
 
   const paymentMethods = [
     "Credit/Debit Card",
@@ -46,13 +43,13 @@ const PaymentMethod = () => {
           {">>"} Cart {">>"} Checkout
         </span>
       </p>
-      <div className="flex justify-between">
-        <div className="mt-8">
-          <h1 className="mb-4">Choose a payment method</h1>
+      <div className="flex flex-col md:flex-row justify-between space-y-8 md:space-y-0">
+        <div className="md:w-1/2">
+          <h1 className="mb-4 text-2xl font-semibold">Choose a payment method</h1>
           <ul>
             {paymentMethods.map((method, index) => (
               <li key={index} className="mb-4">
-                <label>
+                <label className="flex items-center">
                   <input
                     type="radio"
                     name="paymentMethod"
@@ -66,14 +63,11 @@ const PaymentMethod = () => {
             ))}
           </ul>
         </div>
-        <div className="bg-gray-100 p-2 rounded shadow ">
-          <div className="">
-            <h3 className="text-xl font-bold mb-4 text-center">
-              Order Summary
-            </h3>
-
+        <div className="md:w-1/2 bg-gray-100 p-4 rounded shadow">
+          <div className="mb-4">
+            <h3 className="text-xl font-bold mb-2 text-center md:text-left">Order Summary</h3>
             {carts.length === 0 ? (
-              <p>Your cart is empty.</p>
+              <p className="text-center md:text-left">Your cart is empty.</p>
             ) : (
               <div className="space-y-4">
                 {carts.map((item, index) => {
@@ -85,23 +79,19 @@ const PaymentMethod = () => {
                   return (
                     <div
                       key={index}
-                      className="border-2 w-full px-4 rounded-md py-4 space-y-4 md:space-y-0"
+                      className="border-2 w-full px-4 rounded-md py-4 space-y-4"
                     >
-                      <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
+                      <div className="flex items-center space-x-4">
                         <img
                           src={product.image}
                           alt={product.name}
-                          className="w-full md:w-40 h-40 object-cover"
+                          className="w-24 h-24 object-cover"
                         />
-                        <div className="text-center md:text-left">
-                          <h2 className="text-xm font-normal">
-                            {product.name}
-                          </h2>
-                          
+                        <div className="flex-1">
+                          <h2 className="text-sm font-semibold">{product.name}</h2>
+                          <p className="text-sm text-gray-600">Quantity: {item.quantity}</p>
+                          <p className="text-sm font-semibold">₦{product.price}</p>
                         </div>
-                        <p className="text-sm font-semibold">
-                            ₦{product.price}
-                          </p>
                       </div>
                     </div>
                   );
@@ -109,23 +99,22 @@ const PaymentMethod = () => {
               </div>
             )}
           </div>
-          <div className="">
-            <div className="">
-              <h3 className="text-xm font-medium mb-4 mt-6">Order Summary</h3>
-              <h2 className="text-xm flex justify-between md:text-sm font-medium">
-                Total: <span>₦{getTotalPrice()}</span>
-              </h2>
-              <Link
-                to="/payment"
-                state={{ method: selectedMethod }}
-                className={`bg-customPurple text-white p-2 rounded mt-4 flex justify-center items-center ${
-                  !isFormValid ? "opacity-50 cursor-not-allowed" : ""
-                }`}
-                onClick={(e) => !isFormValid && e.preventDefault()}
-              >
-                Checkout
-              </Link>
+          <div>
+            <h3 className="text-sm font-medium mb-2 mt-4">Order Total</h3>
+            <div className="flex justify-between items-center">
+              <h2 className="text-lg font-medium">Total:</h2>
+              <span className="text-lg font-medium">₦{getTotalPrice()}</span>
             </div>
+            <Link
+              to={isFormValid ? "/payment" : "#"}
+              state={{ method: selectedMethod }}
+              className={`block bg-customPurple text-white mt-4 py-2 px-4 rounded text-center ${
+                !isFormValid ? "opacity-50 cursor-not-allowed" : ""
+              }`}
+              onClick={(e) => !isFormValid && e.preventDefault()}
+            >
+              Checkout
+            </Link>
           </div>
         </div>
       </div>

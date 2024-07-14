@@ -54,7 +54,7 @@ const ProductDetail = () => {
   };
 
   return (
-    <div className="p-6 font-inter">
+    <div className="p-6 font-inter max-w-4xl mx-auto">
       <h1 className="text-2xl font-semibold mb-4">{productDetail.name}</h1>
       <Slider {...sliderSettings} className="mb-4">
         {productDetail.images.map((image, index) => (
@@ -62,7 +62,7 @@ const ProductDetail = () => {
             <img
               src={image}
               alt={`${productDetail.name} ${index + 1}`}
-              className="w-full h-auto"
+              className="w-full h-auto object-cover"
             />
           </div>
         ))}
@@ -76,7 +76,7 @@ const ProductDetail = () => {
         >
           -
         </button>
-        <span className="bg-gray-400 h-full w-10 font-bold text-xl rounded-xl flex justify-center items-center mx-2">
+        <span className="bg-gray-200 h-full w-10 font-bold text-xl rounded-xl flex justify-center items-center mx-2">
           {quantity}
         </span>
         <button
