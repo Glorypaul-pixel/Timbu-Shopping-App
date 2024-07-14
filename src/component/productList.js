@@ -18,7 +18,7 @@ export const products = [
     image: AppleTv,
     price: 1500550,
     description:
-      "Supports 4k HDR and Dolby Vision. Offers access to other streaming services and Siri voice control.",
+      "Supports 4k HDR and Dolby Vision. Offers access to other streaming services and Siri voice",
     slug: "apple-tv-4k-smart-tv",
   },
 
@@ -37,7 +37,7 @@ export const products = [
     image: Fridge,
     price: 600000,
     description:
-      "High-tech refrigerator with a built-in touchscreen, manage groceries, stream music, and control devices",
+      "High-tech refrigerator with a built-in touchscreen, manage groceries, stream music.",
     slug: "samsung-family-refrigerator",
   },
 
@@ -47,7 +47,7 @@ export const products = [
     image: Oven,
     price: 500550,
     description:
-      "A countertop oven with multiple cooking functions, including air frying, with smart presets for easy use.",
+      "A countertop oven with multiple cooking functions, including air frying, with smart.",
     slug: "breville-smart-oven-air",
   },
   {
@@ -56,7 +56,7 @@ export const products = [
     image: Nest,
     price: 1500550,
     description:
-      "Learns your schedule and preferences, optimizing energy usage and providing remote control.",
+      "Learns your schedule and preferences, optimizing energy usage and providing.",
     slug: "nest-learning-thermometer",
   },
   {
@@ -65,7 +65,7 @@ export const products = [
     image: Ecobee,
     price: 100550,
     description:
-      "Built-in Alexa, allowing you to control temperature and other smart devices using voice commands.",
+      "Built-in Alexa, allowing you to control temperature and other smart devices.",
     slug: "ecobee-smart-thermostat",
   },
   {
@@ -74,7 +74,7 @@ export const products = [
     image: PotWifi,
     price: 250000,
     description:
-      "A multi-functional pressure cooker with Wi-Fi connectivity for remote control and monitoring.",
+      "A multi-functional pressure cooker with Wi-Fi connectivity for remote control monitoring.",
     slug: "instant-smart-pot-wifi",
   },
   {
@@ -110,7 +110,7 @@ export const products = [
     image: Xbox,
     price: 1500550,
     description:
-      "Microsoft's most powerful console, providing 4K gaming and up to 120 FPS.",
+      "Microsoft's most powerful console, providing 4K gaming and up to 120 FPS and all.",
     slug: "xbox-series-x",
   },
   {
@@ -119,7 +119,7 @@ export const products = [
     image: Elite,
     price: 50000,
     description:
-      "A powerful universal remote that can control all your entertainment devices and smart home gadgets.",
+      "A powerful universal remote that can control all your entertainment devices adgets.",
     slug: "logitech-harmony-elite",
   },
 ];
