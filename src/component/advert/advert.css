@@ -27,14 +27,3 @@
   filter: blur(2px);
   z-index: -1;
 }
-
-.shop-advert p {
-  position: relative;
-  z-index: 1;
-  font-weight: 500;
-}
-.shop-advert h1 {
-  font-weight: 800;
-  position: relative;
-  z-index: 1;
-}

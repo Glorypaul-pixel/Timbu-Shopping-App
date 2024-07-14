@@ -10,16 +10,18 @@ import Ecobee from "./image/ecobee.jpg";
 import PotWifi from "./image/pot-wifi.jpg";
 import HueBulb from "./image/hue-bulb.jpg";
 import QLED from "./image/tv4.jpg";
+
 export const products = [
   {
     id: 1,
-    name: "Samsung QLED Smart TV",
-    image: QLED,
-    price: 362485,
+    name: "Apple TV 4K Smart TV",
+    image: AppleTv,
+    price: 1500550,
     description:
-      "Built-in internet connectivity, voice control and smart home integration with our smart TV",
-    slug: "samsung-qled-smart-tv",
+      "Supports 4k HDR and Dolby Vision. Offers access to other streaming services and Siri voice control.",
+    slug: "apple-tv-4k-smart-tv",
   },
+
   {
     id: 2,
     name: "Ario Pro 4 Spotlight Camera",
@@ -48,19 +50,8 @@ export const products = [
       "A countertop oven with multiple cooking functions, including air frying, with smart presets for easy use.",
     slug: "breville-smart-oven-air",
   },
-
   {
     id: 5,
-    name: "Apple TV 4K Smart TV",
-    image: AppleTv,
-    price: 1500550,
-    description:
-      "Supports 4k HDR and Dolby Vision. Offers access to other streaming services and Siri voice control.",
-    slug: "apple-tv-4k-smart-tv",
-  },
-
-  {
-    id: 6,
     name: "Nest Learning Thermometer",
     image: Nest,
     price: 1500550,
@@ -69,7 +60,7 @@ export const products = [
     slug: "nest-learning-thermometer",
   },
   {
-    id: 7,
+    id: 6,
     name: "Ecobee Smart Thermostat",
     image: Ecobee,
     price: 100550,
@@ -78,7 +69,7 @@ export const products = [
     slug: "ecobee-smart-thermostat",
   },
   {
-    id: 8,
+    id: 7,
     name: "Instant Smart Pot Wifi",
     image: PotWifi,
     price: 250000,
@@ -86,7 +77,15 @@ export const products = [
       "A multi-functional pressure cooker with Wi-Fi connectivity for remote control and monitoring.",
     slug: "instant-smart-pot-wifi",
   },
-
+  {
+    id: 8,
+    name: "Samsung QLED Smart TV",
+    image: QLED,
+    price: 362485,
+    description:
+      "Built-in internet connectivity, voice control and smart home integration with our smart TV",
+    slug: "samsung-qled-smart-tv",
+  },
   {
     id: 9,
     name: "Play Station 5",

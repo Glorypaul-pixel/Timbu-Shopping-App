@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import { changeQuantity } from "../stores/card";
 
 const CartItem = (props) => {
-  console.log("CartItem props:", props);
   const { productId, quantity } = props.data || {};
   const [productDetail, setDetail] = useState(null);
   const dispatch = useDispatch();

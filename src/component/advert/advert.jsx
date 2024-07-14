@@ -2,9 +2,8 @@ import "./advert.css";
 
 const advert = () => {
   return (
-    <div className="shop-advert cursor-default mt-14">
-      <h1>#Shop Now</h1>
-      <p>Check out our collection</p>
+    <div className="shop-advert cursor-default mt-20 font-monte">
+      <h1 className="text-4xl mt-10 text-center font-semibold">Shop Our Collection</h1>
     </div>
   );
 };

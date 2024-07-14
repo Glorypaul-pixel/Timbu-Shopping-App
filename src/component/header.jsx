@@ -22,53 +22,72 @@ const Header = () => {
   };
 
   return (
-    <div className="px-7 py-3 bg-white shadow-lg fixed top-0 w-full z-50">
-      <div className="flex items-center justify-between">
-        <div className="logo font-hanalei text-customPurple text-2xl">
-          <h1>Timbu</h1>
-        </div>
-        <nav className="hidden md:flex">
-          <ul className="flex space-x-4 text-sm font-inter font-normal">
-            <li className="py-2 px-3">
-              <Link to="/">Home</Link>
-            </li>
-            <li className="py-2 px-3">
-              <Link to="/categories">Categories</Link>
-            </li>
-            <li className="py-2 px-3">
-              <Link to="/" className="border-b-4 border-customPurple">
-                Shop
-              </Link>
-            </li>
-            <li className="py-2 px-3">
-              <Link to="/help">Help</Link>
-            </li>
-          </ul>
-        </nav>
-        <div className="hidden md:flex items-center border border-solid border-gray-300 bg-neutral-300 rounded-md p-1 max-w-xs font-inter">
-          <img src={Search} alt="Search bar" className="w-4 h-4 mr-1" />
-          <input
-            type="search"
-            name="search"
-            placeholder="Search devices..."
-            className="bg-neutral-300 text-black px-1 py-0.5 outline-none flex-1 rounded-md text-sm"
-          />
-        </div>
-        <div className="cart flex items-center space-x-2 font-inter font-normal text-sm relative">
-          <div className="w-8 h-8 bg-gray-200 rounded-full flex justify-center items-center relative">
-            <img src={Cart} alt="Cart icon" className="w-6 h-6" />
-            <span className="w-4 h-4 rounded-full flex justify-center items-center absolute top-0 right-0 bg-red-500 text-white text-xs">
-              {totalQuantity}
-            </span>
+    <div className="w-full  px-7 py-3 bg-white shadow-lg fixed top-0 z-50">
+      <div className="h-hgt flex items-center justify-around ">
+        <div
+          className="flex justify-between items-center"
+          style={{ width: "358px" }}
+        >
+          <div className="logo font-hanalei text-customPurple text-2xl">
+            <h1>Timbu</h1>
           </div>
-
-          <img src={ICON} alt="Customer image" className="w-8 h-8" />
-          <p className="ml-2">Hi, Blessing</p>
+          <nav className="hidden md:flex">
+            <ul
+              className="flex space-x-4 text-sm font-inter font-normal items-center justify-around"
+              style={{ width: "250px", height: "28px" }}
+            >
+              <li className="">
+                <Link to="/">Home</Link>
+              </li>
+              <li className="">
+                <Link to="/categories">Categories</Link>
+              </li>
+              <li className="text-customPurple">
+                <Link to="/" className="border-b-4 border-customPurple">
+                  Shop
+                </Link>
+              </li>
+              <li className="">
+                <Link to="/help">Help</Link>
+              </li>
+            </ul>
+          </nav>
         </div>
-        <div className="md:hidden">
-          <button onClick={toggleMenu}>
-            <img src={MenuIcon} alt="Menu icon" className="w-6 h-6" />
-          </button>
+        <div
+          className="flex justify-between items-center "
+          style={{ width: "450px" }}
+        >
+          <div className="hidden md:flex items-center border border-solid border-searchGray bg-searchGray rounded-md p-1 max-w-xs font-inter">
+            <img src={Search} alt="Search bar" className="w-4 h-4 mr-1" />
+            <input
+              type="search"
+              name="search"
+              placeholder="Search devices..."
+              className="bg-searchGray text-gray-600 px-1 py-0.5 outline-none flex-1 rounded-md text-sm"
+            />
+          </div>
+          <div
+            className="cart flex items-center space-x-2 font-inter font-normal text-sm relative justify-between"
+            style={{ width: "180px" }}
+          >
+            <div className="w-8 h-8 bg-gray-200 rounded-full flex justify-center items-center relative">
+              <Link to="/cart">
+                <img src={Cart} alt="Cart icon" className="w-6 h-6" />
+              </Link>
+
+              <span className="w-4 h-4 rounded-full flex justify-center items-center absolute top-0 right-0 bg-red-500 text-white text-xs">
+                {totalQuantity}
+              </span>
+            </div>
+
+            <img src={ICON} alt="Customer image" className="w-8 h-8" />
+            <p className="ml-2">Hi, Blessing</p>
+          </div>
+          <div className="md:hidden">
+            <button onClick={toggleMenu}>
+              <img src={MenuIcon} alt="Menu icon" className="w-6 h-6" />
+            </button>
+          </div>
         </div>
       </div>
 

@@ -5,9 +5,10 @@ import Tele from "./image/telegram.png";
 
 const Footer = () => {
   return (
-    <div className="footer flex flex-col md:flex-row justify-between font-inter px-7 py-14 text-sm text-white bg-blackish mt-32 cursor-default">
+    <div >
+    <div className="footer flex flex-col md:flex-row justify-between font-inter px-7 py-14 text-sm text-white bg-blackish mt-20 cursor-default">
       <div className="foot-logo mb-8 md:mb-0">
-        <h1 className="logo text-customPurple text-2xl font-hanalei">Timbu</h1>
+        <h1 className="logo text-white text-2xl font-hanalei">Timbu</h1>
         <p className="mt-4 text-xs">
           We offer the best <br /> smart home <br /> devices for your <br />
           smart home. Join <br /> the world of smart <br /> homes today
@@ -41,12 +42,14 @@ const Footer = () => {
         <br />
         <button
           type="submit"
-          className="mt-2 bg-customPurple text-white rounded-md px-8 py-2 font-medium text-xs text-center hover:bg-opacity-80"
+          className="mt-2 bg-subscribe text-white rounded-md px-8 py-2 font-medium text-xs text-center hover:bg-opacity-80"
         >
           Subscribe
         </button>
       </form>
     </div>
+  </div>
+    
   );
 };
 
