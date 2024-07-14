@@ -1,5 +1,8 @@
 import { useNavigate } from "react-router-dom";
+// import axios from "axios";
+
 import { useEffect } from "react";
+// import { fetchProducts } from "../stores/api";
 import PropTypes from "prop-types";
 import Cart from "./image/cart-plus.png";
 import Star from "./image/Star.png";
@@ -8,21 +11,18 @@ import { addToCart } from "../stores/card";
 import { fetchProducts } from "../stores/api";
 
 const ProductCard = (props) => {
-  const loadProducts = async () => {
-    await fetchProducts();
-  };
-
-  useEffect(() => {
-    loadProducts();
+  const products = async ()=> {
+    await fetchProducts()
+  }
+    useEffect(() => {
+    products()
+      
   }, []);
-
   const carts = useSelector((store) => store.cart.items);
   console.log(carts);
-
   const { id, name, price, image, description } = props.data;
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const handleAddToCart = () => {
     dispatch(
       addToCart({
@@ -32,17 +32,16 @@ const ProductCard = (props) => {
     );
     navigate("/cart");
   };
-
   return (
-    <div className="p-4">
-      <div key={id} className="product-item bg-white p-4 rounded-lg shadow-md">
-        <img src={image} alt={name} className="w-full h-auto max-w-full rounded-lg" />
-        <h4 className="my-2 font-bold text-lg text-center">{name}</h4>
-        <span className="text-xs text-gray-600 font-semibold flex items-center justify-center mb-2">
-          <img src={Star} alt="Star" className="w-4 h-4 mr-1" />
+    <div>
+      <div key={id} className="product-item bg-white p-4">
+        <img src={image} alt="" className="w-full h-auto max-w-full" />
+        <h4 className="my-2 font-bold">{name}</h4>
+        <span className=" text-xs text-gray-600 font-semibold flex items-center">
+          <img src={Star} alt="" className="w-20 mr-2" />
           (1,200 reviews)
         </span>
-        <p className="mt-1 text-sm text-gray-600 font-medium leading-6 text-center">
+        <p className="mt-1 text-sm text-gray-600 font-medium leading-6">
           {description}
         </p>
         <div className="add-cart flex items-center justify-between mt-2">
@@ -61,7 +60,6 @@ const ProductCard = (props) => {
     </div>
   );
 };
-
 ProductCard.propTypes = {
   data: PropTypes.shape({
     id: PropTypes.number.isRequired,
