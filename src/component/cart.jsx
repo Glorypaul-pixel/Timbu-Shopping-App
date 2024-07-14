@@ -126,24 +126,6 @@ const Cart = () => {
               Checkout
             </Link>
           </div>
-          <div className="pt-6">
-            <p className="text-lg mb-2">
-              If you have any promotional code, please enter it here:
-            </p>
-            <div className="flex justify-between w-full border-2 rounded-md">
-              <input
-                type="text"
-                className="w-1/2 px-4 py-2 border-none outline-none"
-                placeholder="Enter promotional code"
-              />
-              <button
-                type="submit"
-                className="bg-customPurple text-white p-2"
-              >
-                Apply Discount
-              </button>
-            </div>
-          </div>
         </div>
       </div>
     </div>
