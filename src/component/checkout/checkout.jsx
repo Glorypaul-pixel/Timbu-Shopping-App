@@ -58,6 +58,12 @@ const Checkout = () => {
 
   return (
     <div className="checkout p-4 md:p-8">
+      <p className="text-sm my-12 font-inter text-gray-500 font-medium text-center cursor-default">
+        Home{" "}
+        <span className="text-customPurple">
+          {">>"} Cart {">>"} Checkout
+        </span>
+      </p>
       <h1 className="text-2xl font-semibold mb-6 text-center">
         Check-Out Details
       </h1>
@@ -188,15 +194,12 @@ const Checkout = () => {
                 {" "}
                 {formData.firstName} {formData.lastName}
               </p>
-              <p>
-                {formData.apartmentSuite} 
-              </p>
+              <p>{formData.apartmentSuite}</p>
               <p> {formData.stateProvince}</p>
               <p> {formData.country}</p>
               <p>{formData.phoneNumber}</p>
               <p> {formData.emailAddress}</p>
             </div>
-            
           )}
         </div>
         <div className="w-full md:w-1/3">

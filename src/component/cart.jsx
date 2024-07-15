@@ -34,7 +34,7 @@ const Cart = () => {
 
   return (
     <div className="p-6 font-inter">
-      <p className="text-sm my-16 font-inter text-gray-500 font-medium text-center cursor-default">
+      <p className="text-sm my-12 font-inter text-gray-500 font-medium text-center cursor-default">
         Home <span className="text-customPurple">{">>"} Cart</span>
       </p>
 
@@ -99,7 +99,7 @@ const Cart = () => {
                           -
                         </button>
                       </div>
-                      <div className="w-1/4">
+                      <div className="w-1/4 flex items-center justify-center">
                         <img
                           src={DeleteIcon}
                           alt="Delete Icon"
