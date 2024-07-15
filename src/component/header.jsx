@@ -25,7 +25,7 @@ const Header = () => {
     <div className="w-full px-7 py-3 bg-white shadow-lg fixed top-0 z-50">
       <div className="h-hgt flex items-center justify-between">
         <div className="flex items-center justify-between" style={{ width: "358px" }}>
-          <div className="logo font-hanalei text-customPurple text-2xl">
+          <div className="logo font-hanalei text-customPurple text-2xl md:ml-12" >
             <h1>Timbu</h1>
           </div>
           <nav className="hidden md:flex">
