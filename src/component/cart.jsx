@@ -59,19 +59,20 @@ const Cart = () => {
                     key={index}
                     className="flex flex-col md:flex-row justify-between items-center border-2 px-4 rounded-md py-4 space-y-4 md:space-y-0 md:space-x-4"
                   >
-                    <div className="flex items-center space-y-4 md:space-y-0 md:space-x-4 w-full md:w-3/4">
+                    <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4 w-full">
                       <img
                         src={product.image}
                         alt={product.name}
                         className="w-full md:w-40 h-40 object-cover"
                       />
-                      <div className="ml-4 text-center md:text-left">
+                      <div className="w-full md:w-auto text-center md:text-left">
                         <h2 className="text-lg font-normal">{product.name}</h2>
                         <p className="text-xl font-medium">₦{product.price}</p>
                       </div>
                     </div>
+
                     <div className="flex w-full md:w-1/4 justify-between items-center space-y-4 md:space-y-0 md:space-x-4">
-                      <div className="flex items-center justify-center w-full md:w-3/4 border-2 rounded-md md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+                      <div className="flex items-center justify-center w-full md:w-3/4 border-2 rounded-md space-x-4 p-2">
                         <button
                           onClick={() =>
                             updateQuantity(product.id, item.quantity + 1)
@@ -87,7 +88,7 @@ const Cart = () => {
                           onChange={(e) =>
                             updateQuantity(product.id, e.target.value)
                           }
-                          className="w-1/6 text-center border-2 rounded-md md:w-16 md:mx-1 outline-none"
+                          className="w-1/6 text-center outline-none"
                         />
                         <button
                           className="text-xl md:text-base font-bold flex justify-center items-center"
