@@ -58,6 +58,7 @@ const Checkout = () => {
 
   return (
     <div className="checkout p-4 md:p-8">
+      
       <p className="text-sm my-12 font-inter text-gray-500 font-medium text-center cursor-default">
         Home{" "}
         <span className="text-customPurple">
